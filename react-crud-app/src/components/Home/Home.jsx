@@ -1,16 +1,28 @@
 import React from "react";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import Table from "react-bootstrap/Table";
-import { Button } from "bootstrap";
+import { deleteUser } from "../../features/users/userSlice";
+
+import "./Home.scss";
+import { Link } from "react-router-dom";
 
 const Home = () => {
   const users = useSelector((state) => state.users);
+  const dispatch = useDispatch();
+
+  const handleDelete = (id) => {
+    dispatch(deleteUser({ id: id }));
+  };
 
   return (
     <div className="container">
-      <h2 className="header">CRUD App</h2>
+      <div className="main-header">
+        <h2 className="header">CRUD App</h2>
+      </div>
 
-      <button className="btn btn-success my-3">Create +</button>
+      <Link to="/create" className="btn btn-success my-3">
+        Create +
+      </Link>
       <Table className="table">
         <thead>
           <tr>
@@ -27,8 +39,8 @@ const Home = () => {
               <td>{user.name}</td>
               <td>{user.email}</td>
               <td>
-                <button>Edit</button>
-                <button>Delete</button>
+                <Link to={`/update/${user.id}`}>Edit</Link>
+                <button onClick={() => handleDelete(user.id)}>Delete</button>
               </td>
             </tr>
           ))}
