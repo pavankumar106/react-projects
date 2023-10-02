@@ -1,6 +1,5 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
-import Table from "react-bootstrap/Table";
 import { deleteUser } from "../../features/users/userSlice";
 
 import "./Home.scss";
