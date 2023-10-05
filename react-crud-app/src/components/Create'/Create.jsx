@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { addUser } from "../../features/users/userSlice";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
+import "./Create.scss";
 
 const Create = () => {
   const [name, setName] = useState("");
@@ -24,12 +25,13 @@ const Create = () => {
     navigate("/");
   };
   return (
-    <div>
+    <div className="container">
       <form action="" onSubmit={handleSubmit}>
-        <h3>Add New User</h3>
+        <h3 className="title">Add New User</h3>
         <div>
           <label htmlFor="name">Name:</label>
           <input
+            className="nameInput"
             type="text"
             name="name"
             onChange={(e) => setName(e.target.value)}
@@ -38,12 +40,13 @@ const Create = () => {
         <div>
           <label htmlFor="email">Email:</label>
           <input
+            className="emailInput"
             type="email"
             name="email"
             onChange={(e) => setEmail(e.target.value)}
           />
         </div>
-        <button>Submit</button>
+        <button className="btn">Submit</button>
       </form>
     </div>
   );

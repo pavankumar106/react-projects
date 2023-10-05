@@ -14,15 +14,18 @@ const Home = () => {
   };
 
   return (
-    <div className="container">
-      <div className="main-header">
-        <h2 className="header">CRUD App</h2>
+    <section className="container">
+      <div className="header">
+        <h2>CRUD App</h2>
       </div>
 
-      <Link to="/create" className="btn btn-success my-3">
-        Create +
-      </Link>
-      <Table className="table">
+      <div className="create">
+        <Link to="/create" className="create-btn">
+          Create +
+        </Link>
+      </div>
+
+      <table className="table">
         <thead>
           <tr>
             <td>ID</td>
@@ -37,15 +40,22 @@ const Home = () => {
               <td>{user.id}</td>
               <td>{user.name}</td>
               <td>{user.email}</td>
-              <td>
-                <Link to={`/update/${user.id}`}>Edit</Link>
-                <button onClick={() => handleDelete(user.id)}>Delete</button>
+              <td className="actions-btn">
+                <Link className="edit-btn" to={`/update/${user.id}`}>
+                  Edit
+                </Link>
+                <button
+                  className="del-btn"
+                  onClick={() => handleDelete(user.id)}
+                >
+                  Delete
+                </button>
               </td>
             </tr>
           ))}
         </tbody>
-      </Table>
-    </div>
+      </table>
+    </section>
   );
 };
 

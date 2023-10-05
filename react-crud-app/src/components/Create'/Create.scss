@@ -1,0 +1,31 @@
+.container {
+  // background-color: rgb(240, 240, 240);
+  padding: 12px;
+  height: 250px;
+  text-align: center;
+
+  .title {
+    font-size: 25px;
+    padding: 10px;
+  }
+  .nameInput,
+  .emailInput {
+    height: 24px;
+    padding: 5px;
+    margin-left: 10px;
+    margin-bottom: 15px;
+  }
+  .btn {
+    border: none;
+    border-radius: 5px;
+    background-color: lightgray;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    cursor: pointer;
+    &:hover {
+      opacity: 0.5;
+    }
+  }
+}
